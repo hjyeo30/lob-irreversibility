@@ -1,0 +1,32 @@
+cff-version: 1.2.0
+message: "Please cite the accompanying ICAIF 2026 paper when using this code."
+type: software
+title: "Limit Order Book Path Irreversibility"
+authors:
+  - family-names: Yeo
+    given-names: Hyeonjun
+    orcid: "https://orcid.org/0009-0005-9368-306X"
+  - family-names: Cha
+    given-names: Doohwi
+    orcid: "https://orcid.org/0009-0000-2513-6965"
+  - family-names: Hwang
+    given-names: Yoontae
+    orcid: "https://orcid.org/0000-0002-5856-1914"
+repository-code: "https://github.com/hjyeo30/lob-irreversibility"
+license: MIT
+preferred-citation:
+  type: conference-paper
+  title: "Neural Estimation of Irreversibility in Real and Simulated Limit Order Book Paths"
+  authors:
+    - family-names: Yeo
+      given-names: Hyeonjun
+      orcid: "https://orcid.org/0009-0005-9368-306X"
+    - family-names: Cha
+      given-names: Doohwi
+      orcid: "https://orcid.org/0009-0000-2513-6965"
+    - family-names: Hwang
+      given-names: Yoontae
+      orcid: "https://orcid.org/0000-0002-5856-1914"
+  collection-title: "7th ACM International Conference on AI in Finance"
+  year: 2026
+  notes: "Accepted for publication."

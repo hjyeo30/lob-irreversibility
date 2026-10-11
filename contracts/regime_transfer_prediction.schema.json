@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "regime_transfer_prediction.schema.json",
+  "title": "Phase 05 regime-transfer prediction row",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "pair_id", "source_date", "test_regime", "test_component", "segment",
+    "path_start_block", "direction", "path_start_ns", "path_end_ns",
+    "realized_source_events", "elapsed_seconds", "raw_score",
+    "calibration_alpha", "calibrated_score", "bounded_log99_score"
+  ],
+  "properties": {
+    "pair_id": {"type": "string", "minLength": 1},
+    "source_date": {"type": "string", "format": "date"},
+    "test_regime": {"enum": ["edge", "daytime"]},
+    "test_component": {"enum": ["open", "pre_close", "daytime"]},
+    "segment": {"type": "integer", "minimum": 0, "maximum": 65535},
+    "path_start_block": {"type": "integer", "minimum": 0, "maximum": 4294967295},
+    "direction": {"enum": ["forward", "reverse"]},
+    "path_start_ns": {"type": "integer"},
+    "path_end_ns": {"type": "integer"},
+    "realized_source_events": {"type": "integer", "minimum": 1},
+    "elapsed_seconds": {"type": "number", "minimum": 0},
+    "raw_score": {"type": "number"},
+    "calibration_alpha": {"type": "number", "minimum": 0},
+    "calibrated_score": {"type": "number"},
+    "bounded_log99_score": {"type": "number"}
+  }
+}

@@ -1,0 +1,39 @@
+contract: new_york_clock_regimes
+version: 2
+timezone: America/New_York
+status: approved
+regimes:
+  premarket:
+    start: "04:00:00"
+    end: "09:30:00"
+    primary_role: nvda_logistic_secondary
+  open:
+    start: "09:30:00"
+    end: "10:00:00"
+    primary_role: edge_component
+  daytime:
+    start: "10:00:00"
+    end: "15:30:00"
+    primary_role: primary
+  pre_close:
+    start: "15:30:00"
+    end: "16:00:00"
+    primary_role: edge_component
+  after_hours:
+    start: "16:00:00"
+    end: "20:00:00"
+    primary_role: nvda_logistic_secondary
+edge:
+  components: [open, pre_close]
+  aggregation: day_component_equal
+  required_diagnostics: [open_only, pre_close_only]
+rules:
+  - path_must_not_cross_regime
+  - path_must_not_cross_source_date
+  - absolute_timestamp_not_a_model_feature
+  - accumulator_reset_at_every_regime_boundary
+  - first_valid_completion_is_warmup_not_counted
+  - opening_or_closing_cross_at_boundary_hard_resets
+  - clear_source_event_hard_resets
+  - invalid_locked_or_crossed_completion_fails_symbol_date
+  - long_gap_is_recorded_not_silently_excluded

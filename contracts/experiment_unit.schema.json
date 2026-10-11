@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "experiment_unit.schema.json",
+  "title": "LOB irreversibility experiment unit",
+  "x-status": "approved_minimal_provenance_v2",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "stage",
+    "symbol",
+    "source_dates",
+    "train_regime",
+    "test_regime",
+    "B",
+    "K",
+    "model",
+    "feature_config",
+    "seed",
+    "score_contract",
+    "input_paths"
+  ],
+  "properties": {
+    "stage": {"type": "string", "minLength": 1},
+    "symbol": {"type": "string", "minLength": 1},
+    "source_dates": {
+      "type": "array",
+      "items": {"type": "string", "format": "date"},
+      "minItems": 1
+    },
+    "train_regime": {"type": "string", "minLength": 1},
+    "test_regime": {"type": "string", "minLength": 1},
+    "B": {"type": "integer", "minimum": 1},
+    "K": {"type": "integer", "minimum": 1},
+    "model": {"type": "string", "minLength": 1},
+    "feature_config": {"type": "string", "minLength": 1},
+    "seed": {"type": "integer", "minimum": 0},
+    "score_contract": {
+      "type": "array",
+      "items": {"enum": ["uncapped", "bounded_log99"]},
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "input_paths": {
+      "type": "array",
+      "items": {"type": "string", "minLength": 1},
+      "minItems": 1,
+      "uniqueItems": true
+    }
+  }
+}

@@ -1,0 +1,93 @@
+{
+  "contract": "phase04_h2_transition_surrogate_outputs",
+  "version": 1,
+  "nullable_default": false,
+  "tables": {
+    "permutation": {
+      "key": ["source_date", "segment_id", "surrogate_position"],
+      "fields": {
+        "source_date": "string", "segment_id": "uint32",
+        "surrogate_position": "uint32", "source_block_index": "uint32",
+        "coarse_from_state": "uint32", "coarse_to_state": "uint32"
+      }
+    },
+    "surrogate_metrics": {
+      "rows": 1080,
+      "key": ["K", "seed", "surrogate_seed", "source_date", "score_contract"],
+      "fields": {
+        "stage": "string", "symbol": "string", "source_date": "string",
+        "train_regime": "string", "test_regime": "string", "B": "int16",
+        "K": "int16", "model": "string", "feature_config": "string",
+        "seed": "int64", "surrogate_seed": "int64", "score_contract": "string",
+        "calibration_mode": "string", "run_unit_id": "string", "n_paths": "int64",
+        "realized_source_events": "int64", "elapsed_seconds": "float64",
+        "nats_path": "float64", "nats_block": "float64", "nats_event": "float64",
+        "nats_second": "float64", "paired_log_loss": "float64",
+        "calibration_alpha": "float64", "posterior_saturation_share": "float64",
+        "calibrated_ovl": "float64", "reverse_like_share": "float64"
+      }
+    },
+    "real_surrogate_contrasts": {
+      "rows": 1080,
+      "key": ["K", "seed", "surrogate_seed", "source_date", "score_contract"],
+      "fields": {
+        "B": "int16", "K": "int16", "seed": "int64", "surrogate_seed": "int64",
+        "source_date": "string", "score_contract": "string", "contrast": "string",
+        "real_n_paths": "int64", "surrogate_n_paths": "int64",
+        "real_realized_source_events": "int64", "surrogate_realized_source_events": "int64",
+        "nats_path": "float64", "nats_block": "float64", "nats_event": "float64",
+        "nats_second": "float64", "positive_nats_event": "bool",
+        "real_run_unit_id": "string", "surrogate_run_unit_id": "string"
+      }
+    },
+    "linkage_audits": {
+      "rows": 60,
+      "key": ["surrogate_seed", "source_date"],
+      "fields": {
+        "source_date": "string", "status": "string", "surrogate_seed": "int64",
+        "n_segments": "int64", "n_edges": "int64", "n_states": "int64",
+        "n_directed_transitions": "int64", "occupancy_max_abs_difference": "int64",
+        "transition_max_abs_difference": "int64", "current_max_abs_difference": "int64",
+        "eligible_links": "int64", "fixed_links": "int64",
+        "endpoint_excluded_links": "int64", "changed_links": "int64",
+        "K2_paths": "int64", "K6_paths": "int64", "K12_paths": "int64",
+        "changed_linkage_share": "float64", "pooled_changed_linkage_share": "float64",
+        "adjacent_exact_boundary_share": "float64", "edge_multiset_exact": "bool",
+        "payload_exact": "bool", "endpoints_exact": "bool", "consumed_once": "bool",
+        "passed": "bool"
+      }
+    },
+    "one_step_validation": {
+      "rows": 60,
+      "key": ["surrogate_seed", "source_date"],
+      "fields": {
+        "source_date": "string", "status": "string", "classifier_status": "string",
+        "surrogate_seed": "int64", "edge_rows": "int64",
+        "realized_source_events": "int64", "k1_score_max_abs_error": "float64",
+        "d1_uncapped_abs_error": "float64", "d1_bounded_abs_error": "float64",
+        "classifier_balanced_accuracy": "float64", "classifier_roc_auc": "float64",
+        "classifier_pooled_balanced_accuracy": "float64",
+        "classifier_pooled_roc_auc": "float64", "token_identity_exact": "bool",
+        "passed": "bool"
+      },
+      "nullable": ["classifier_balanced_accuracy", "classifier_roc_auc",
+        "classifier_pooled_balanced_accuracy", "classifier_pooled_roc_auc"]
+    },
+    "input_lineage": {
+      "rows": 7, "key": ["source", "B", "K"],
+      "fields": {"source": "string", "B": "int16", "K": "int16", "path": "string",
+        "files": "int64", "rows": "int64", "bytes": "int64", "status": "string"}
+    },
+    "axis_decisions": {
+      "rows": 4, "key": ["K"],
+      "fields": {"K": "int16", "gate": "string", "status": "string",
+        "threshold_json": "string", "observed_json": "string", "decision": "string"}
+    }
+  },
+  "json": {
+    "coarse_state": {"contract": "phase04_h2_coarse_state_v1"},
+    "construction_complete": {"contract": "phase04_h2_construction_v1"},
+    "scoring_complete": {"contract": "phase04_h2_scoring_v1"},
+    "k6_cpu_parity": {"status": ["passed", "failed"]}
+  }
+}

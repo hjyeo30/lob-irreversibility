@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "first_order_factorized_scores.schema.json",
+  "title": "Phase 04 forward-only factorized path score row",
+  "x-arrow-schema": "first_order_factorized_scores_v1",
+  "x-orientation": "forward_only_reverse_is_exact_negative",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "pair_id",
+    "source_date",
+    "start_block_index",
+    "path_start_ns",
+    "path_end_ns",
+    "path_event_count",
+    "duration_seconds",
+    "target_b",
+    "k",
+    "seed",
+    "raw_factorized_score",
+    "local_alpha_score",
+    "path_alpha_score"
+  ],
+  "properties": {
+    "pair_id": {"type": "string", "minLength": 1},
+    "source_date": {"type": "string", "format": "date"},
+    "start_block_index": {"type": "integer", "minimum": 0},
+    "path_start_ns": {"type": "integer"},
+    "path_end_ns": {"type": "integer"},
+    "path_event_count": {"type": "integer", "minimum": 1},
+    "duration_seconds": {"type": "number", "minimum": 0},
+    "target_b": {"const": 10},
+    "k": {"enum": [1, 2, 6, 12]},
+    "seed": {"enum": [20260730, 20260731, 20260732]},
+    "raw_factorized_score": {"type": "number"},
+    "local_alpha_score": {"type": "number"},
+    "path_alpha_score": {"type": "number"}
+  }
+}

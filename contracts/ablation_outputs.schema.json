@@ -1,0 +1,67 @@
+{
+  "contract": "phase06_ablation_arrow_outputs",
+  "version": 1,
+  "nullable_default": false,
+  "tables": {
+    "unit_metrics": {
+      "key": ["stage", "symbol", "source_date", "train_regime", "test_regime", "B", "K", "model", "feature_config", "seed", "score_contract"],
+      "fields": {
+        "stage": "string", "symbol": "string", "source_date": "string",
+        "train_regime": "string", "test_regime": "string", "B": "int16", "K": "int16",
+        "model": "string", "feature_config": "string", "seed": "int64",
+        "score_contract": "string", "run_unit_id": "string", "n_paths": "int64",
+        "realized_source_events": "int64", "elapsed_seconds": "float64",
+        "nats_path": "float64", "nats_block": "float64", "nats_event": "float64",
+        "nats_second": "float64", "paired_log_loss": "float64",
+        "calibration_alpha": "float64", "calibrated_ovl": "float64",
+        "posterior_saturation_share": "float64", "reverse_like_share": "float64",
+        "null_nats_path": "float64", "null_score_contract": "string"
+      },
+      "nullable": ["null_nats_path"]
+    },
+    "paired_contrasts": {
+      "key": ["stage", "symbol", "source_date", "train_regime", "test_regime", "B", "K", "feature_config", "seed", "score_contract"],
+      "metric_template": ["pooled_{q}:float64", "ordered_{q}:float64", "ordered_minus_pooled_{q}:float64"],
+      "q": ["nats_path", "nats_block", "nats_event", "nats_second"]
+    },
+    "ablation_contrasts": {
+      "key": ["stage", "symbol", "source_date", "train_regime", "test_regime", "B", "K", "model", "feature_config", "seed", "score_contract"],
+      "additional_fields": {"analysis_labels": "list<string>"},
+      "metric_template": ["config_{q}:float64", "full_{q}:float64", "config_minus_full_{q}:float64", "full_minus_config_{q}:float64"],
+      "q": ["nats_path", "nats_block", "nats_event", "nats_second"]
+    },
+    "screen_decisions": {
+      "key": ["canonical_feature_config"],
+      "fields": {
+        "canonical_feature_config": "string", "analysis_labels": "list<string>",
+        "screen_seed": "int64", "both_units_valid": "bool",
+        "any_model_config_full_same_sign_3d": "bool",
+        "temporal_gap_change_same_sign_3d": "bool", "support_not_worse": "bool",
+        "bounded_uncapped_gap_sign_match": "bool", "exploratory_expand": "bool",
+        "decision_basis": "string"
+      }
+    },
+    "support_audits": {
+      "key": ["stage", "symbol", "train_regime", "test_regime", "B", "K", "model", "feature_config", "seed"],
+      "fields": {
+        "stage": "string", "symbol": "string", "train_regime": "string", "test_regime": "string",
+        "B": "int16", "K": "int16", "model": "string", "feature_config": "string", "seed": "int64",
+        "status": "string", "structural_audit_passed": "bool", "null_gate_passed": "bool",
+        "resume_exact": "bool", "mask_exact": "bool", "completion_passed": "bool",
+        "score_antisymmetry_max_abs_error": "float64", "prediction_rows": "int64",
+        "permutation_applicable": "bool", "permutation_max_abs_error": "float64"
+      },
+      "nullable": ["permutation_max_abs_error"]
+    },
+    "input_lineage": {
+      "key": ["lineage_role"],
+      "fields": {
+        "lineage_role": "string", "upstream_path": "string", "object_count": "int64",
+        "bytes": "int64", "start_date": "string", "end_date": "string",
+        "validation_status": "string", "rows": "int64"
+      },
+      "nullable": ["rows"],
+      "allowed_roles": ["b10_blocks", "full_reference"]
+    }
+  }
+}

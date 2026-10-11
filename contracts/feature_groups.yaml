@@ -1,0 +1,75 @@
+contract: primary_feature_groups
+version: 1
+status: approved_phase06_exact_contract
+groups:
+  G0:
+    name: trivial_control
+    families: [elapsed_time, realized_event_count, completion_overshoot]
+    channels: [elapsed_ns, realized_source_event_count, completion_overshoot]
+  GS:
+    name: state
+    families: [spread, l1_depth, l5_depth, imbalance]
+    boundary_channels:
+      - spread_ticks
+      - bid_depth_l1
+      - ask_depth_l1
+      - bid_depth_l5
+      - ask_depth_l5
+      - imbalance_l1
+      - imbalance_l5
+    boundary_positions: [start, end]
+  GF:
+    name: mechanical_flow
+    families: [net_depth_change, gross_depth_variation]
+    channels:
+      - bid_depth_l1_net_change
+      - ask_depth_l1_net_change
+      - bid_depth_l5_net_change
+      - ask_depth_l5_net_change
+      - bid_depth_l1_gross_variation
+      - ask_depth_l1_gross_variation
+      - bid_depth_l5_gross_variation
+      - ask_depth_l5_gross_variation
+  GL:
+    name: liquidity_event
+    families: [best_depletion, appearance_replenishment]
+    channels:
+      - appearance_minus_depletion_count
+      - depletion_plus_appearance_count
+      - bid_best_depletion_count
+      - bid_best_appearance_count
+      - ask_best_depletion_count
+      - ask_best_appearance_count
+  GP:
+    name: price_and_variation
+    families: [return, quote_movement, absolute_price_variation, absolute_liquidity_variation]
+    channels:
+      - mid_log_return
+      - mid_change_half_ticks
+      - bid_quote_change_ticks
+      - ask_quote_change_ticks
+      - mid_abs_variation_half_ticks
+      - spread_abs_variation_ticks
+canonical_feature_configs:
+  full_gall: [G0, GS, GF, GL, GP]
+  only_gs: [GS]
+  only_gf: [GF]
+  only_gl: [GL]
+  only_gp: [GP]
+  drop_gs: [G0, GF, GL, GP]
+  drop_gf: [G0, GS, GL, GP]
+  drop_gl: [G0, GS, GF, GP]
+  drop_gp: [G0, GS, GF, GL]
+  ladder_g0: [G0]
+  ladder_g0_gs: [G0, GS]
+  ladder_g0_gs_gf: [G0, GS, GF]
+aliases:
+  ladder_g0_gs_gf_gl: drop_gp
+  ladder_g0_gs_gf_gl_gp: full_gall
+analyses:
+  - group_only
+  - leave_one_group_out
+  - fixed_economic_ladder
+interpretation_limits:
+  - not_causal
+  - not_unique_additive_decomposition

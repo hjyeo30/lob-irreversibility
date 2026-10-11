@@ -1,0 +1,81 @@
+contract: physical_path_reversal
+version: 2
+status: approved
+model_projection: continuous_path_37_v1
+
+boundary_fields:
+  operation: reverse_time
+  fields:
+    - spread_ticks
+    - bid_depth_l1
+    - ask_depth_l1
+    - bid_depth_l5
+    - ask_depth_l5
+    - imbalance_l1
+    - imbalance_l5
+
+interval_odd:
+  operation: reverse_time_and_sign
+  fields:
+    - bid_depth_l1_net_change
+    - ask_depth_l1_net_change
+    - bid_depth_l5_net_change
+    - ask_depth_l5_net_change
+    - appearance_minus_depletion_count
+    - mid_log_return
+    - mid_change_half_ticks
+    - bid_quote_change_ticks
+    - ask_quote_change_ticks
+
+interval_even:
+  operation: reverse_time
+  fields:
+    - bid_depth_l1_gross_variation
+    - ask_depth_l1_gross_variation
+    - bid_depth_l5_gross_variation
+    - ask_depth_l5_gross_variation
+    - depletion_plus_appearance_count
+    - mid_abs_variation_half_ticks
+    - spread_abs_variation_ticks
+    - elapsed_ns
+    - realized_source_event_count
+    - completion_overshoot
+
+interval_swap_pairs:
+  operation: reverse_time_and_swap_within_side
+  pairs:
+    - [bid_best_depletion_count, bid_best_appearance_count]
+    - [ask_best_depletion_count, ask_best_appearance_count]
+
+storage_only_not_reversed_into_primary_model:
+  - dataset
+  - symbol
+  - source_date
+  - regime_directory_partition
+  - target_b
+  - block_index
+  - first_source_event_index
+  - last_source_event_index
+  - first_raw_ordinal
+  - last_raw_ordinal
+  - block_start_ns
+  - block_end_ns
+  - flags_or
+  - start_best_bid_nano
+  - start_best_ask_nano
+  - start_midprice_x2_nano
+  - end_best_bid_nano
+  - end_best_ask_nano
+  - end_midprice_x2_nano
+  - same_price_refill_count
+  - cause_add_count
+  - cause_cancel_count
+  - cause_replace_count
+  - cause_displayed_execution_count
+  - cause_other_count
+
+required_audits:
+  reversal_involution_max_abs: 0.0
+  score_antisymmetry_max_abs: 1.0e-6
+  forward_reverse_pair_identity_errors: 0
+  pooled_permutation_max_abs: 2.0e-5

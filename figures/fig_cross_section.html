@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>fig_cross_section</title>
+<style>
+/* Typography and palette are shared with figures/fig_overview.html, because
+   this figure is the twelve-symbol expansion of that figure's third lane and
+   has to be read with the same key.  Prose and labels are IBM Plex Sans, every
+   printed quantity is Linux Libertine. */
+@font-face { font-family:"Plex"; font-weight:400; src:url("fonts/IBMPlexSans-Regular.ttf"); }
+@font-face { font-family:"Plex"; font-weight:600; src:url("fonts/IBMPlexSans-SemiBold.ttf"); }
+@font-face { font-family:"Libertine"; font-weight:400; font-style:normal;
+  src:url("../build/fonts/LinLibertine_R.ttf"); }
+@font-face { font-family:"Libertine"; font-weight:400; font-style:italic;
+  src:url("../build/fonts/LinLibertine_RI.ttf"); }
+
+@page { size: 3.33in 1.78in; margin: 0; }
+html,body{ margin:0; padding:0; }
+body{
+  width:239.76pt; height:128.2pt;
+  font-family:"Plex",sans-serif; color:#3A3531;
+  -webkit-font-smoothing:antialiased;
+}
+.sheet{ box-sizing:border-box; padding:2pt; }
+svg{ display:block; width:100%; overflow:visible; }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+<!-- Each bar is the ordered rate, split at the pooled value, so the clay
+     segment is the ordering increment and its length is directly the share
+     printed at the right.  This is the same construction as lane 3 of Figure 1,
+     which is why no second axis for the increment is needed.  Rates are in
+     1e-3 nats per event; the plotting scale is 178 units to 60e-3, so one unit
+     is 0.337e-3.  Numbers are the phase 07 cross-symbol table, averaged equally
+     over three test dates and three initializations, with the range taken
+     across initializations. -->
+<svg viewBox="0 0 236 124" role="img">
+
+  <g font-family="Plex" font-size="6.8" fill="#5C554D">
+    <rect x="27" y="1.4" width="8" height="4.6" fill="#8B837A"/>
+    <text x="38" y="5.6">without block order</text>
+    <rect x="112" y="1.4" width="8" height="4.6" fill="#B23B2C"/>
+    <text x="123" y="5.6">requires block order</text>
+  </g>
+
+  <!-- Grid behind the bars, at the same tick positions as the axis below. -->
+  <g stroke="#D2CDC6" stroke-width="0.5">
+    <line x1="86.33" y1="10" x2="86.33" y2="103.6"/>
+    <line x1="145.67" y1="10" x2="145.67" y2="103.6"/>
+  </g>
+
+  <g font-family="Plex" font-size="6.8" fill="#3A3531">
+    <text x="0" y="15.2">AAPL</text>
+    <text x="0" y="23.2">NVDA</text>
+    <text x="0" y="31.2">COST</text>
+    <text x="0" y="39.2">TSLA</text>
+    <text x="0" y="47.2">SAIA</text>
+    <text x="0" y="55.2">PEP</text>
+    <text x="0" y="63.2">CROX</text>
+    <text x="0" y="71.2">IWM</text>
+    <text x="0" y="79.2">PODD</text>
+    <text x="0" y="87.2">SPY</text>
+    <text x="0" y="95.2">QQQ</text>
+    <text x="0" y="103.2">SOFI</text>
+  </g>
+
+  <g>
+    <rect x="27" y="10" width="80.91" height="5.6" fill="#8B837A"/>
+    <rect x="107.91" y="10" width="54.55" height="5.6" fill="#B23B2C"/>
+    <rect x="27" y="18" width="106.40" height="5.6" fill="#8B837A"/>
+    <rect x="133.40" y="18" width="52.99" height="5.6" fill="#B23B2C"/>
+    <rect x="27" y="26" width="98.13" height="5.6" fill="#8B837A"/>
+    <rect x="125.13" y="26" width="52.80" height="5.6" fill="#B23B2C"/>
+    <rect x="27" y="34" width="110.58" height="5.6" fill="#8B837A"/>
+    <rect x="137.58" y="34" width="48.45" height="5.6" fill="#B23B2C"/>
+    <rect x="27" y="42" width="39.23" height="5.6" fill="#8B837A"/>
+    <rect x="66.23" y="42" width="47.81" height="5.6" fill="#B23B2C"/>
+    <rect x="27" y="50" width="111.36" height="5.6" fill="#8B837A"/>
+    <rect x="138.36" y="50" width="47.42" height="5.6" fill="#B23B2C"/>
+    <rect x="27" y="58" width="81.66" height="5.6" fill="#8B837A"/>
+    <rect x="108.66" y="58" width="45.33" height="5.6" fill="#B23B2C"/>
+    <rect x="27" y="66" width="92.67" height="5.6" fill="#8B837A"/>
+    <rect x="119.67" y="66" width="43.25" height="5.6" fill="#B23B2C"/>
+    <rect x="27" y="74" width="48.19" height="5.6" fill="#8B837A"/>
+    <rect x="75.19" y="74" width="41.14" height="5.6" fill="#B23B2C"/>
+    <rect x="27" y="82" width="114.49" height="5.6" fill="#8B837A"/>
+    <rect x="141.49" y="82" width="36.31" height="5.6" fill="#B23B2C"/>
+    <rect x="27" y="90" width="115.70" height="5.6" fill="#8B837A"/>
+    <rect x="142.70" y="90" width="33.24" height="5.6" fill="#B23B2C"/>
+    <rect x="27" y="98" width="147.00" height="5.6" fill="#8B837A"/>
+    <rect x="174.00" y="98" width="11.20" height="5.6" fill="#B23B2C"/>
+  </g>
+
+  <!-- Range of the increment across initializations, drawn at the end of the
+       bar because that end is where the increment lands. -->
+  <g stroke="#3A3531" stroke-width="0.6">
+    <line x1="160.66" y1="12.8" x2="164.18" y2="12.8"/>
+    <line x1="160.66" y1="10.6" x2="160.66" y2="15.0"/>
+    <line x1="164.18" y1="10.6" x2="164.18" y2="15.0"/>
+    <line x1="184.68" y1="20.8" x2="187.53" y2="20.8"/>
+    <line x1="184.68" y1="18.6" x2="184.68" y2="23.0"/>
+    <line x1="187.53" y1="18.6" x2="187.53" y2="23.0"/>
+    <line x1="176.85" y1="28.8" x2="178.78" y2="28.8"/>
+    <line x1="176.85" y1="26.6" x2="176.85" y2="31.0"/>
+    <line x1="178.78" y1="26.6" x2="178.78" y2="31.0"/>
+    <line x1="184.79" y1="36.8" x2="187.54" y2="36.8"/>
+    <line x1="184.79" y1="34.6" x2="184.79" y2="39.0"/>
+    <line x1="187.54" y1="34.6" x2="187.54" y2="39.0"/>
+    <line x1="112.42" y1="44.8" x2="116.84" y2="44.8"/>
+    <line x1="112.42" y1="42.6" x2="112.42" y2="47.0"/>
+    <line x1="116.84" y1="42.6" x2="116.84" y2="47.0"/>
+    <line x1="184.89" y1="52.8" x2="186.95" y2="52.8"/>
+    <line x1="184.89" y1="50.6" x2="184.89" y2="55.0"/>
+    <line x1="186.95" y1="50.6" x2="186.95" y2="55.0"/>
+    <line x1="149.49" y1="60.8" x2="160.24" y2="60.8"/>
+    <line x1="149.49" y1="58.6" x2="149.49" y2="63.0"/>
+    <line x1="160.24" y1="58.6" x2="160.24" y2="63.0"/>
+    <line x1="161.02" y1="68.8" x2="165.47" y2="68.8"/>
+    <line x1="161.02" y1="66.6" x2="161.02" y2="71.0"/>
+    <line x1="165.47" y1="66.6" x2="165.47" y2="71.0"/>
+    <line x1="113.48" y1="76.8" x2="117.92" y2="76.8"/>
+    <line x1="113.48" y1="74.6" x2="113.48" y2="79.0"/>
+    <line x1="117.92" y1="74.6" x2="117.92" y2="79.0"/>
+    <line x1="176.80" y1="84.8" x2="178.37" y2="84.8"/>
+    <line x1="176.80" y1="82.6" x2="176.80" y2="87.0"/>
+    <line x1="178.37" y1="82.6" x2="178.37" y2="87.0"/>
+    <line x1="174.83" y1="92.8" x2="177.56" y2="92.8"/>
+    <line x1="174.83" y1="90.6" x2="174.83" y2="95.0"/>
+    <line x1="177.56" y1="90.6" x2="177.56" y2="95.0"/>
+    <line x1="182.19" y1="100.8" x2="187.93" y2="100.8"/>
+    <line x1="182.19" y1="98.6" x2="182.19" y2="103.0"/>
+    <line x1="187.93" y1="98.6" x2="187.93" y2="103.0"/>
+  </g>
+
+  <g font-family="Libertine" font-size="7.2" fill="#3A3531">
+    <text x="236" y="15.2" text-anchor="end">40%</text>
+    <text x="236" y="23.2" text-anchor="end">33%</text>
+    <text x="236" y="31.2" text-anchor="end">35%</text>
+    <text x="236" y="39.2" text-anchor="end">30%</text>
+    <text x="236" y="47.2" text-anchor="end">55%</text>
+    <text x="236" y="55.2" text-anchor="end">30%</text>
+    <text x="236" y="63.2" text-anchor="end">36%</text>
+    <text x="236" y="71.2" text-anchor="end">32%</text>
+    <text x="236" y="79.2" text-anchor="end">46%</text>
+    <text x="236" y="87.2" text-anchor="end">24%</text>
+    <text x="236" y="95.2" text-anchor="end">22%</text>
+    <text x="236" y="103.2" text-anchor="end">7%</text>
+  </g>
+
+  <line x1="27" y1="107" x2="205" y2="107" stroke="#3A3531" stroke-width="0.7"/>
+  <g stroke="#3A3531" stroke-width="0.7">
+    <line x1="27" y1="107" x2="27" y2="109.4"/>
+    <line x1="86.33" y1="107" x2="86.33" y2="109.4"/>
+    <line x1="145.67" y1="107" x2="145.67" y2="109.4"/>
+    <line x1="205" y1="107" x2="205" y2="109.4"/>
+  </g>
+  <g font-family="Libertine" font-size="6.8" fill="#3A3531">
+    <text x="27" y="116" text-anchor="middle">0</text>
+    <text x="86.33" y="116" text-anchor="middle">20</text>
+    <text x="145.67" y="116" text-anchor="middle">40</text>
+    <text x="205" y="116" text-anchor="middle">60</text>
+  </g>
+  <text x="116" y="124" text-anchor="middle" font-family="Plex" font-size="6.8"
+    fill="#3A3531">irreversibility rate (10<tspan font-size="5.2"
+    dy="-2.2">&#8722;3</tspan><tspan dy="2.2"> nats per event)</tspan></text>
+</svg>
+
+</div>
+</body>
+</html>

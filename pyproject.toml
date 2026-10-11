@@ -1,0 +1,38 @@
+[project]
+name = "lob-irreversibility"
+version = "0.1.0"
+description = "Code and audit materials for limit-order-book path irreversibility"
+license = "MIT"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "databento>=0.70,<0.83",
+    "duckdb>=1.4,<1.6",
+    "lightgbm>=4.6,<4.7",
+    "matplotlib>=3.10,<3.12",
+    "numpy>=2.3,<2.6",
+    "otf2ttf>=0.2,<0.3",
+    "pandas>=2.3,<2.4",
+    "playwright>=1.55,<1.59",
+    "psutil>=7.0,<8",
+    "pyarrow>=21,<26",
+    "scikit-learn>=1.7,<1.8",
+    "scipy>=1.16,<1.19",
+    "sortedcontainers>=2.4,<3",
+    "torch>=2.13.0",
+]
+
+[tool.uv]
+package = false
+index-strategy = "unsafe-best-match"
+
+[[tool.uv.index]]
+name = "pytorch-cpu"
+url = "https://download.pytorch.org/whl/cpu"
+explicit = true
+
+[[tool.uv.index]]
+name = "pypi"
+url = "https://pypi.org/simple"
+
+[tool.uv.sources]
+torch = { index = "pytorch-cpu" }
