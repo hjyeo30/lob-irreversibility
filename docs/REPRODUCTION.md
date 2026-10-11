@@ -22,12 +22,19 @@ runs the QR simulator's bounded contract smoke test.
 ```bash
 uv run python figures/make_figures.py
 uv run playwright install chromium
-uv run python figures/render_html.py figures/fig_overview.html figures/fig_cross_section.html
+uv run python figures/render_html.py figures/fig_overview.html
 ```
 
-Figures 3--5 are written by Matplotlib. Figures 1--2 are HTML/SVG layouts printed
+Figures 2--5 are written by Matplotlib. Figure 1 is an HTML/SVG layout printed
 to vector PDF. Linux Libertine and Linux Biolinum are required for exact matching
 to the ACM manuscript typography.
+
+The plotting commands read only bundled aggregate values. Figure 2 validates
+its 12-symbol, three-date panel and checks that averaging the daily increments
+agrees with the difference between the mean ordered and pooled rates. This check
+can be run independently with `uv run python figures/make_figures.py --check-data`
+and is also included in `verify_artifact.py`. It performs no model fitting.
+See [the figure guide](../figures/README.md) for units and aggregation.
 
 ## 4. Data-backed scientific order
 

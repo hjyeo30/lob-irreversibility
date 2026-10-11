@@ -16,7 +16,8 @@
 | Shuffled block order | `reproduction/controls/shuffled_order_control.py` | Fig. 5(b) |
 | Queue-reactive simulator | `reproduction/src/qr_real_input_adapter.py`, `reproduction/src/qr_simulator_runtime.py`, `reproduction/src/simulator_training_runtime.py` | Fig. 5(a--b) |
 | Simulator transition surrogate | `reproduction/src/qr_transition_surrogate_runtime.py` | Fig. 5(c) |
-| Figures 1--2 | `figures/fig_overview.html`, `figures/fig_cross_section.html`, `figures/render_html.py` | vector PDF via Chromium |
+| Figure 1 | `figures/fig_overview.html`, `figures/render_html.py` | vector PDF via Chromium |
+| Figure 2 | `figures/make_figures.py`, `figures/data/cross_symbol.json` | mean rates and three test-date points per symbol |
 | Figures 3--5 | `figures/make_figures.py` | PDF and high-resolution PNG |
 
 The numerical arrays in the figure sources are the compact values reported in

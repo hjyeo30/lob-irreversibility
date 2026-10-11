@@ -6,8 +6,9 @@ Paths* by **Hyeonjun Yeo, Doohwi Cha, and Yoontae Hwang** (accepted for oral pre
 
 This repository contains the scientific
 implementations and audit contracts behind the reported analyses, plus the exact
-sources for all five figures. It contains no market data, trained checkpoints,
-intermediate outputs, provider-control code, or billing records.
+sources for all five camera-ready figures, including the compact aggregate
+values plotted in Figure 2. It contains no message-level or path-level market
+data, trained checkpoints, provider-control code, or billing records.
 
 ## What is included
 
@@ -62,18 +63,25 @@ uv run python verify_artifact.py
 uv run python figures/make_figures.py
 ```
 
-The last command writes Figures 3--5 as PDF and PNG. Figures 1--2 use HTML/SVG
-sources and headless Chromium:
+The last command writes Figures 2--5 as vector PDFs in `figures/` and 400-dpi
+PNG previews in `build/figure_previews/`. Figure 1 uses an HTML/SVG source
+and headless Chromium:
 
 ```bash
 uv run playwright install chromium
-uv run python figures/render_html.py figures/fig_overview.html figures/fig_cross_section.html
+uv run python figures/render_html.py figures/fig_overview.html
 ```
 
 Linux Libertine/Biolinum must be installed for the exact paper typography. The
 IBM Plex Sans faces used by the figures are included under their upstream font
 license. See [the reproduction guide](docs/REPRODUCTION.md) for the data-backed
 scope, execution order, and expected resources.
+
+The camera-ready Figure 2 includes three test-date points per symbol. Its
+36 date-specific increments and 12 mean-rate rows are included in
+[`figures/data/cross_symbol.json`](figures/data/cross_symbol.json), with the
+sample, aggregation rules and upstream fingerprints. See
+[the figure guide](figures/README.md) for panel definitions.
 
 ## Data and computational limits
 

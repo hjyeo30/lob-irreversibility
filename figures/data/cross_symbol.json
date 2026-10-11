@@ -1,0 +1,332 @@
+{
+  "schema_version": 1,
+  "figure": "Figure 2",
+  "units": "nats per event",
+  "sample": {
+    "B": 10,
+    "K": 6,
+    "features": 37,
+    "session": "daytime",
+    "test_dates": [
+      "2026-07-21",
+      "2026-07-22",
+      "2026-07-23"
+    ],
+    "initializations_per_date": 3,
+    "score_contract": "bounded_log99"
+  },
+  "aggregation": {
+    "daily": "Mean paired ordered minus pooled rate over three initializations within each symbol and date.",
+    "means": "Equal weights across the three test dates and three initializations.",
+    "uncertainty": "Date points show observed variation; they are not confidence intervals."
+  },
+  "provenance": {
+    "calculation": "Completed cross-symbol analysis, no new fitting or inference.",
+    "upstream_sources": [
+      {
+        "name": "paired_contrasts.parquet",
+        "sha256": "580dd810fbccc6dffa38aba9bcb234a1392642004c6ffd6fcf5fc1e99c9e7efb"
+      },
+      {
+        "name": "unit_metrics.parquet",
+        "sha256": "0f9ccf325af6a5c3300b8ec799673a9d9c128e5b61ff29067e56c8f6220fb9c3"
+      },
+      {
+        "name": "complete.json",
+        "sha256": "380c3752c1433c0cad6a2d4ba8822955471944439d4d5561d3f5212f9d61a7c5"
+      }
+    ]
+  },
+  "daily": [
+    {
+      "symbol": "AAPL",
+      "source_date": "2026-07-21",
+      "ordering_increment": 0.01777979312540733,
+      "n_initializations": 3
+    },
+    {
+      "symbol": "AAPL",
+      "source_date": "2026-07-22",
+      "ordering_increment": 0.019914267586861885,
+      "n_initializations": 3
+    },
+    {
+      "symbol": "AAPL",
+      "source_date": "2026-07-23",
+      "ordering_increment": 0.017473190689433683,
+      "n_initializations": 3
+    },
+    {
+      "symbol": "COST",
+      "source_date": "2026-07-21",
+      "ordering_increment": 0.016524123006723266,
+      "n_initializations": 3
+    },
+    {
+      "symbol": "COST",
+      "source_date": "2026-07-22",
+      "ordering_increment": 0.017846468737783578,
+      "n_initializations": 3
+    },
+    {
+      "symbol": "COST",
+      "source_date": "2026-07-23",
+      "ordering_increment": 0.019023247586183484,
+      "n_initializations": 3
+    },
+    {
+      "symbol": "CROX",
+      "source_date": "2026-07-21",
+      "ordering_increment": 0.013470584654243695,
+      "n_initializations": 3
+    },
+    {
+      "symbol": "CROX",
+      "source_date": "2026-07-22",
+      "ordering_increment": 0.016525637896544456,
+      "n_initializations": 3
+    },
+    {
+      "symbol": "CROX",
+      "source_date": "2026-07-23",
+      "ordering_increment": 0.0158435156409478,
+      "n_initializations": 3
+    },
+    {
+      "symbol": "IWM",
+      "source_date": "2026-07-21",
+      "ordering_increment": 0.013931624190419947,
+      "n_initializations": 3
+    },
+    {
+      "symbol": "IWM",
+      "source_date": "2026-07-22",
+      "ordering_increment": 0.014252768076678803,
+      "n_initializations": 3
+    },
+    {
+      "symbol": "IWM",
+      "source_date": "2026-07-23",
+      "ordering_increment": 0.015554934215675041,
+      "n_initializations": 3
+    },
+    {
+      "symbol": "NVDA",
+      "source_date": "2026-07-21",
+      "ordering_increment": 0.017693177384623178,
+      "n_initializations": 3
+    },
+    {
+      "symbol": "NVDA",
+      "source_date": "2026-07-22",
+      "ordering_increment": 0.01815949684895553,
+      "n_initializations": 3
+    },
+    {
+      "symbol": "NVDA",
+      "source_date": "2026-07-23",
+      "ordering_increment": 0.017734157287674215,
+      "n_initializations": 3
+    },
+    {
+      "symbol": "PEP",
+      "source_date": "2026-07-21",
+      "ordering_increment": 0.017140724677701457,
+      "n_initializations": 3
+    },
+    {
+      "symbol": "PEP",
+      "source_date": "2026-07-22",
+      "ordering_increment": 0.016752403826017316,
+      "n_initializations": 3
+    },
+    {
+      "symbol": "PEP",
+      "source_date": "2026-07-23",
+      "ordering_increment": 0.014064940685540303,
+      "n_initializations": 3
+    },
+    {
+      "symbol": "PODD",
+      "source_date": "2026-07-21",
+      "ordering_increment": 0.010826820497465674,
+      "n_initializations": 3
+    },
+    {
+      "symbol": "PODD",
+      "source_date": "2026-07-22",
+      "ordering_increment": 0.01293481671512667,
+      "n_initializations": 3
+    },
+    {
+      "symbol": "PODD",
+      "source_date": "2026-07-23",
+      "ordering_increment": 0.017835717440229604,
+      "n_initializations": 3
+    },
+    {
+      "symbol": "QQQ",
+      "source_date": "2026-07-21",
+      "ordering_increment": 0.012279054581540202,
+      "n_initializations": 3
+    },
+    {
+      "symbol": "QQQ",
+      "source_date": "2026-07-22",
+      "ordering_increment": 0.010907046240983008,
+      "n_initializations": 3
+    },
+    {
+      "symbol": "QQQ",
+      "source_date": "2026-07-23",
+      "ordering_increment": 0.01042272238674616,
+      "n_initializations": 3
+    },
+    {
+      "symbol": "SAIA",
+      "source_date": "2026-07-21",
+      "ordering_increment": 0.014638124352179418,
+      "n_initializations": 3
+    },
+    {
+      "symbol": "SAIA",
+      "source_date": "2026-07-22",
+      "ordering_increment": 0.01442318081784511,
+      "n_initializations": 3
+    },
+    {
+      "symbol": "SAIA",
+      "source_date": "2026-07-23",
+      "ordering_increment": 0.019288033299494724,
+      "n_initializations": 3
+    },
+    {
+      "symbol": "SOFI",
+      "source_date": "2026-07-21",
+      "ordering_increment": 0.0041557029340389936,
+      "n_initializations": 3
+    },
+    {
+      "symbol": "SOFI",
+      "source_date": "2026-07-22",
+      "ordering_increment": 0.0036417306454958934,
+      "n_initializations": 3
+    },
+    {
+      "symbol": "SOFI",
+      "source_date": "2026-07-23",
+      "ordering_increment": 0.003523918065251206,
+      "n_initializations": 3
+    },
+    {
+      "symbol": "SPY",
+      "source_date": "2026-07-21",
+      "ordering_increment": 0.012578276792629503,
+      "n_initializations": 3
+    },
+    {
+      "symbol": "SPY",
+      "source_date": "2026-07-22",
+      "ordering_increment": 0.012374036529075733,
+      "n_initializations": 3
+    },
+    {
+      "symbol": "SPY",
+      "source_date": "2026-07-23",
+      "ordering_increment": 0.011765814383352826,
+      "n_initializations": 3
+    },
+    {
+      "symbol": "TSLA",
+      "source_date": "2026-07-21",
+      "ordering_increment": 0.01553948345263635,
+      "n_initializations": 3
+    },
+    {
+      "symbol": "TSLA",
+      "source_date": "2026-07-22",
+      "ordering_increment": 0.01754653130935375,
+      "n_initializations": 3
+    },
+    {
+      "symbol": "TSLA",
+      "source_date": "2026-07-23",
+      "ordering_increment": 0.015902866284302403,
+      "n_initializations": 3
+    }
+  ],
+  "means": [
+    {
+      "symbol": "AAPL",
+      "pooled_mlp": 0.02727431136001416,
+      "ordered_tcn": 0.04566339516058179,
+      "ordering_increment": 0.018389083800567634
+    },
+    {
+      "symbol": "NVDA",
+      "pooled_mlp": 0.03586742122179066,
+      "ordered_tcn": 0.053729698395541634,
+      "ordering_increment": 0.017862277173750975
+    },
+    {
+      "symbol": "COST",
+      "pooled_mlp": 0.03307754469078297,
+      "ordered_tcn": 0.05087549113434642,
+      "ordering_increment": 0.017797946443563445
+    },
+    {
+      "symbol": "TSLA",
+      "pooled_mlp": 0.03727642726149435,
+      "ordered_tcn": 0.053606054276925184,
+      "ordering_increment": 0.016329627015430837
+    },
+    {
+      "symbol": "SAIA",
+      "pooled_mlp": 0.013224009824349028,
+      "ordered_tcn": 0.029340455980855447,
+      "ordering_increment": 0.01611644615650642
+    },
+    {
+      "symbol": "PEP",
+      "pooled_mlp": 0.037538822795597025,
+      "ordered_tcn": 0.05352484585868338,
+      "ordering_increment": 0.015986023063086358
+    },
+    {
+      "symbol": "CROX",
+      "pooled_mlp": 0.027526683129772356,
+      "ordered_tcn": 0.04280659586035101,
+      "ordering_increment": 0.015279912730578653
+    },
+    {
+      "symbol": "IWM",
+      "pooled_mlp": 0.031238447598747016,
+      "ordered_tcn": 0.045818223093004956,
+      "ordering_increment": 0.01457977549425794
+    },
+    {
+      "symbol": "PODD",
+      "pooled_mlp": 0.016244444300574964,
+      "ordered_tcn": 0.03011022918484895,
+      "ordering_increment": 0.013865784884273986
+    },
+    {
+      "symbol": "SPY",
+      "pooled_mlp": 0.03859367561502732,
+      "ordered_tcn": 0.05083305151671334,
+      "ordering_increment": 0.012239375901686021
+    },
+    {
+      "symbol": "QQQ",
+      "pooled_mlp": 0.038999952266005104,
+      "ordered_tcn": 0.05020289333576156,
+      "ordering_increment": 0.011202941069756459
+    },
+    {
+      "symbol": "SOFI",
+      "pooled_mlp": 0.04955219549848132,
+      "ordered_tcn": 0.05332597938007669,
+      "ordering_increment": 0.003773783881595369
+    }
+  ]
+}

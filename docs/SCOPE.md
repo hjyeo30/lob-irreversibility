@@ -1,6 +1,6 @@
 # Artifact scope
 
-The inclusion boundary is the submitted paper, not the full research workspace.
+The inclusion boundary is the camera-ready paper and its reported analyses.
 
 Included:
 
@@ -8,12 +8,12 @@ Included:
 - source code that computes a reported result or a control named in the paper
 - validation code required to establish a reported identity or support gate
 - data contracts needed to interpret the omitted proprietary inputs
-- exact publication-figure sources
+- exact publication-figure sources and the small aggregate inputs plotted in them
 
 Excluded:
 
 - raw or derived market observations
-- trained weights, predictions, checkpoints, and result tables
+- trained weights, path-level predictions, checkpoints, and full experiment result tables
 - private local account details, correspondence, and original research Git history
 - manuscript drafts, response letters, internal plans, and exploratory reports
 - paid acquisition helpers, provider credentials, SSH configuration, cloud

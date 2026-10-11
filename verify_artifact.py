@@ -37,7 +37,8 @@ REQUIRED = (
     "data/README.md",
     "docs/PAPER_TO_CODE.md",
     "figures/fig_overview.html",
-    "figures/fig_cross_section.html",
+    "figures/data/cross_symbol.json",
+    "figures/README.md",
     "figures/make_figures.py",
     "reproduction/src/cuda_runtime.py",
     "reproduction/src/transition_surrogate_runtime.py",
@@ -127,6 +128,7 @@ def compile_python(paths: list[Path]) -> None:
 
 def run_smoke() -> None:
     commands = (
+        [sys.executable, str(ROOT / "figures/make_figures.py"), "--check-data"],
         [
             sys.executable,
             str(ROOT / "reproduction/src/qr_simulator_runtime.py"),
